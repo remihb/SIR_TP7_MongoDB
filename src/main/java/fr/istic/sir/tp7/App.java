@@ -6,18 +6,20 @@ import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
 import com.mongodb.MongoClient;
 
-public class App 
+public class App
 {
 	public static void main( String[] args ) throws UnknownHostException
 	{
-		Morphia morphia = new Morphia();    
+		Morphia morphia = new Morphia();
 		MongoClient mongo = new MongoClient();
 		morphia.map(Person.class).map(Address.class).map(Article.class);
 
 		Datastore ds = morphia.createDatastore(mongo, "test");
-		
+
 		// drop collection to avoid duplicates
 		ds.getCollection(Article.class).drop();
+		ds.getCollection(Person.class).drop();
+		ds.getCollection(Address.class).drop();
 
 		Person p1 = new Person("Tintin");
 		Person p2 = new Person("Haddock");
@@ -33,13 +35,13 @@ public class App
 		Address a6 = new Address("9303 Roslyndale Avenue", "Los Angeles", "1", "US");
 		Address a7 = new Address("Chateau de Moulinsard", "Cheverny", "41700", "France");
 
-		Article ar1 = new Article("Fusée spatiale", 97); 
-		Article ar2 = new Article("Sous-marin", 93); 
-		Article ar3 = new Article("Statuette", 91); 
-		Article ar4 = new Article("Sceptre", 89); 
-		Article ar5 = new Article("Cigares", 88); 
-		Article ar6 = new Article("Jarre chinoise", 84); 
-		Article ar7 = new Article("Champignon géant", 81); 
+		Article ar1 = new Article("Fusée spatiale", 97);
+		Article ar2 = new Article("Sous-marin", 93);
+		Article ar3 = new Article("Statuette", 91);
+		Article ar4 = new Article("Sceptre", 89);
+		Article ar5 = new Article("Cigares", 88);
+		Article ar6 = new Article("Jarre chinoise", 84);
+		Article ar7 = new Article("Champignon géant", 81);
 
 		p1.addAddress(a1);
 		p1.addAddress(a2);

@@ -1,6 +1,8 @@
 package fr.istic.sir.tp7;
 
+import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Embedded;
+import org.mongodb.morphia.annotations.Id;
 
 @Embedded
 public class Address {
