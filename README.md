@@ -147,7 +147,7 @@ Voilà ce que nous retourne la requête, et on voit tout de suite une des limite
 			]
 		}
 	]
-}il s'agit d'
+}
 {
 	"_id" : ObjectId("5714e01744aea5065eab0b8a"),
 	"className" : "fr.istic.sir.tp7.Article",
